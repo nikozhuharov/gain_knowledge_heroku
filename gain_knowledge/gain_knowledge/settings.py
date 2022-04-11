@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'gain_knowledge.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'knowledge_db',
-        'USER': 'postgres',
-        'PASSWORD': '1123QwER',
-        'HOST': '127.0.0.1',
+        'NAME': 'd7lf3p8qnkhjoa',
+        'USER': 'zqzckdpmhwrcuf',
+        'PASSWORD': '65efe883ea5533da090590fa7cca5164d9cf810ca21788063b758ce0d56ecc81',
+        'HOST': 'ec2-52-18-116-67.eu-west-1.compute.amazonaws.com',
         'PORT': '5432'
     }
 }
