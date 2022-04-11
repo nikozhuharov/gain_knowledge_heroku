@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div class="row justify-content-center">
+        <div class="d-flex">
+            <div class="d-inline p-2 w-50">
+                <img src="{{ profile.picture.url }}"
+                     class="w-50 rounded mx-auto d-block" alt="description">
+            </div>
+            <div class="d-inline p-2 w-50">
+
+
+                <div class="d-flex flex-column">
+                    <h5><u>Name:</u> {{ profile.first_name }} {{ profile.last_name }}</h5>
+
+                    {% if profile.date_of_birth %}
+                        <h5><u>Birthdate:</u> {{ profile.date_of_birth }}</h5>
+                    {% endif %}
+                    {% if profile.email %}
+                        <h5><u>Email:</u> {{ profile.email }}</h5>
+                    {% endif %}
+                    {% if profile.gender %}
+                        <h5><u>Gender:</u> {{ profile.gender }}</h5>
+                    {% endif %}
+
+                </div>
+                {% if is_owner %}
+                    <a href="{% url 'profile edit' profile.pk%}" class="btn btn-primary">Edit Profile Information</a>
+                    <a href="{% url 'change password' %}" class="btn btn-warning">Change Password</a>
+                    <a href="{% url 'profile delete' profile.pk%}" class="btn btn-danger">Delete Profile</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

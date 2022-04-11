@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+
+    <div class="col-md-12 text-center">
+
+        <h1>Test Completed</h1>
+        <br>
+        <h3>Total Questions: {{ total_answers }}</h3>
+        <h3>Correct Answers: {{ correct_answers }}</h3>
+        <h3>Incorrect Answers: {{ incorrect_answers }}</h3>
+        <h3>Result: {{ percentage }}%</h3>
+        <br>
+
+        <div class="d-inline p-2 w-50">
+            <a href="{% url 'display question' pk_test 0%}" class="btn btn-primary">Start Again</a>
+            <a href="{% url 'list categories' %}" class="btn btn-warning">Categories</a>
+        </div>
+
+    </div>
+
+
+{% endblock %}

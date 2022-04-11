@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    {% if is_owner %}
+    <div>
+        <a href="{% url 'create question' test.pk %}">
+            <button class="btn btn-primary mt-2">Create Question</button>
+        </a>
+    </div>
+    <br>
+    <div>
+        <table class="table table-striped">
+        <tbody>
+        {% for question in questions_list %}
+            <tr>
+                <td>{{ question.title }}</td>
+                <td>
+                    <a href="{% url 'show question' question.pk %}">
+                        <button class="btn btn-primary mt-2">Show</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'edit question' question.pk %}">
+                        <button class="btn btn-warning mt-2">Edit</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{%  url 'delete question' question.pk %}">
+                        <button class="btn btn-danger mt-2">Delete</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    {% else %}
+        <h1 class="text-center">Access Forbidden</h1>
+    {% endif %}
+
+{% endblock %}

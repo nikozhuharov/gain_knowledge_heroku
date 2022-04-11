@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    {% if is_owner %}
+        <h1 class="text-center">Are you sure you would like to delete your profile?</h1>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <form enctype="multipart/form-data" method="post" action="{% url 'profile delete' profile.pk%}">
+                        {% csrf_token %}
+                        {{ form }}
+                        <div class="col-md-12 text-center">
+                        <button class="btn btn-danger mt-2" type="submit">Delete</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+    {% else %}
+        <h1 class="text-center">Access Forbidden</h1>
+    {% endif %}
+{% endblock %}

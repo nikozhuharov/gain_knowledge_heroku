@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block page_content %}
+{% if not no_question %}
+<div class="col-md-12 text-center">
+<form class="form-control form-control-lg" method="post" action="{% url 'display question' pk_test count_questions%}">
+
+    {% csrf_token %}
+    {{ form }}
+
+    <button class="btn btn-primary mt-2" type="submit">Submit</button>
+</form>
+</div>
+{% else %}
+    <h1 class="text-center">No Questions Available</h1>
+{% endif %}
+
+{% endblock %}

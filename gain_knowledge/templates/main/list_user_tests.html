@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+    {% if is_owner %}
+    <div>
+        <a href="{% url 'create test' course.pk %}">
+            <button class="btn btn-primary mt-2">Create Test</button>
+        </a>
+    </div>
+    <br>
+    <div>
+        <table class="table table-striped">
+        <tbody>
+        {% for test in tests_list %}
+            <tr>
+                <td>{{ test.title }}</td>
+                <td>
+                    <a href="{% url 'user list questions' test.pk %}">
+                        <button class="btn btn-success mt-2">Questions</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'edit test' test.pk %}">
+                        <button class="btn btn-warning mt-2">Edit Name</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'delete test' test.pk %}">
+                        <button class="btn btn-danger mt-2">Delete</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    {% else %}
+        <h1 class="text-center">Access Forbidden</h1>
+    {% endif %}
+
+
+{% endblock %}

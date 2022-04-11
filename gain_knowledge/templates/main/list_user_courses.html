@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+    <div>
+        <a href="{% url 'create course' %}">
+            <button class="btn btn-primary mt-2">Create Course</button>
+        </a>
+    </div>
+    <br>
+    <div>
+        <table class="table table-striped">
+        <tbody>
+        {% for course in courses_list %}
+            <tr>
+                <td>
+                    <img height="40" src="{{ course.picture.url }}" alt="Image">
+                </td>
+                <td>{{ course.title }}</td>
+                <td>
+                    <a href="{% url 'courses details' course.pk %}">
+                        <button class="btn btn-success mt-2">Show</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'edit course' course.pk %}">
+                        <button class="btn btn-warning mt-2">Edit</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'user list tests' course.pk %}">
+                        <button class="btn btn-info mt-2">Tests</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'delete course' course.pk %}">
+                        <button class="btn btn-danger mt-2">Delete</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+
+{% endblock %}

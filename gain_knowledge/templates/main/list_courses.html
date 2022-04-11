@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+
+<div class="row">
+    {% for course in courses_list %}
+        <div class="col-sm-6">
+            <div class="card" style="width: 25rem;">
+                <img class="card-img-top" src="{{ course.picture.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ course.title }}</h5>
+                    <p class="card-text">{{ course.description }}</p>
+                    <a href="{% url 'courses details' course.pk %}" class="btn btn-primary">Start</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
