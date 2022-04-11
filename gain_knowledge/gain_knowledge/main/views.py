@@ -135,7 +135,7 @@ def final_score(request, pk_test):
 class CreateCourseView(auth_mixin.LoginRequiredMixin, views.CreateView):
     template_name = 'main/course_create.html'
     form_class = CreateCourseForm
-    success_url = reverse_lazy('list categories')
+    success_url = reverse_lazy('user list courses')
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
